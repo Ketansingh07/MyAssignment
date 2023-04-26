@@ -1,5 +1,5 @@
-public class ArmstrongOrNot {
-    public static boolean isArmstrong(int num) {
+class ArmstrongOrNot {
+    public boolean armstrongCheck(int num) {
         int sum = 0;
         int temp = num;
         while(temp > 0) {
@@ -7,16 +7,20 @@ public class ArmstrongOrNot {
             sum += (digit * digit * digit);
             temp /= 10;
         }
-        return (sum == num);
+        if(sum == num)
+            return true;
+        else
+            return false;
     }
 }
 
 public class Assignment1Q1 {
     public static void main(String[] args) {
+        ArmstrongOrNot obj = new ArmstrongOrNot();
         int num = 371;
-        if(ArmstrongOrNot.isArmstrong(num))
-            System.out.println(num + " is an Armstrong number.");
+        if(obj.armstrongCheck(num))
+            System.out.println(num+" is an Armstrong number.");
         else
-            System.out.println(num + " is not an Armstrong number.");
+            System.out.println(num+" is not an Armstrong number.");
     }
 }
