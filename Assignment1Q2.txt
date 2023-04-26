@@ -1,0 +1,45 @@
+class ArmstrongNumBetweenRange {
+    public int[] armstrongNumbersInRange(int min, int max) {
+        int count = 0;
+        for (int i = min; i <= max; i++) {
+            int num = i;
+            int sum = 0;
+            while (num > 0) {
+                int digit = num % 10;
+                sum += (digit * digit * digit);
+                num /= 10;
+            }
+            if (sum == i)
+                count++;
+        }
+        int[] arr = new int[count];
+        int j = 0;
+        for (int i = min; i <= max; i++) {
+            int num = i;
+            int sum = 0;
+            while (num > 0) {
+                int digit = num % 10;
+                sum += (digit * digit * digit);
+                num /= 10;
+            }
+            if (sum == i) {
+                arr[j] = i;
+                j++;
+            }
+        }
+        return arr;
+    }
+}
+
+public class Assignment1Q2 {
+    public static void main(String[] args) {
+        int min = 100;
+        int max = 999;
+        ArmstrongNumBetweenRange obj = new ArmstrongNumBetweenRange();
+        int[] arr = obj.armstrongNumbersInRange(min, max);
+        System.out.println("Armstrong numbers between " + min + " and " + max + " are:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
